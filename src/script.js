@@ -45,6 +45,7 @@ function displayLibrary() {
 
     const bookStatusElement = document.createElement("p");
     bookStatusElement.innerText = bookLibrary[i].status;
+    bookStatusElement.className = "book-status";
     bookCardElement.appendChild(bookStatusElement);
   }
 }
@@ -63,7 +64,5 @@ const book3 = addBookToLibrary(
   444,
   "Read"
 );
-
-console.log(bookLibrary);
 
 displayLibrary();
