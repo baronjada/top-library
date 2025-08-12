@@ -22,31 +22,43 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 function displayLibrary() {
+  const bookLibraryContainer = document.createElement("div");
+  bookLibraryContainer.className = "book-library-container";
+  document.body.appendChild(bookLibraryContainer);
+
   for (let i = 0; i < bookLibrary.length; i++) {
     const bookCardElement = document.createElement("div");
     bookCardElement.setAttribute("data-book-id", bookLibrary[i].id);
     bookCardElement.className = "book-card";
-    document.body.appendChild(bookCardElement);
+    bookLibraryContainer.appendChild(bookCardElement);
+
+    const titleAndAuthorContainer = document.createElement("div");
+    titleAndAuthorContainer.className = "book-title-and-author";
+    bookCardElement.appendChild(titleAndAuthorContainer);
 
     const bookTitleElement = document.createElement("p");
     bookTitleElement.innerText = bookLibrary[i].title;
     bookTitleElement.className = "book-title";
-    bookCardElement.appendChild(bookTitleElement);
+    titleAndAuthorContainer.appendChild(bookTitleElement);
 
     const bookAuthorElement = document.createElement("p");
     bookAuthorElement.innerText = `by ${bookLibrary[i].author}`;
     bookAuthorElement.className = "book-author";
-    bookCardElement.appendChild(bookAuthorElement);
+    titleAndAuthorContainer.appendChild(bookAuthorElement);
+
+    const pagesAndStatusContainer = document.createElement("div");
+    pagesAndStatusContainer.className = "book-pages-and-status";
+    bookCardElement.appendChild(pagesAndStatusContainer);
 
     const bookPagesElement = document.createElement("p");
     bookPagesElement.innerText = `${bookLibrary[i].pages} pages`;
     bookPagesElement.className = "book-pages";
-    bookCardElement.appendChild(bookPagesElement);
+    pagesAndStatusContainer.appendChild(bookPagesElement);
 
     const bookStatusElement = document.createElement("p");
     bookStatusElement.innerText = bookLibrary[i].status;
     bookStatusElement.className = "book-status";
-    bookCardElement.appendChild(bookStatusElement);
+    pagesAndStatusContainer.appendChild(bookStatusElement);
   }
 }
 

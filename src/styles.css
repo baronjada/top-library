@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.book-library-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 18px;
+  padding: 18px;
+}
+
+.book-card {
+  background-color: rgb(147, 147, 147);
+  padding: 18px;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-card p {
+  color: #fff;
+}
+
+.book-title-and-author {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-title {
+  font-size: 1.4em;
+}
+
+.book-author {
+  font-size: 1em;
+}
+
+.book-pages-and-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-pages-and-status p {
+  font-size: 0.8em;
+  color: rgb(33, 33, 33);
+  font-weight: 500;
+}
