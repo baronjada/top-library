@@ -23,15 +23,29 @@ function addBookToLibrary(title, author, pages, status) {
 
 function displayLibrary() {
   for (let i = 0; i < bookLibrary.length; i++) {
-    const bookCard = document.createElement("div");
-    bookCard.setAttribute("data-book-id", bookLibrary[i].id);
-    bookCard.className = "book-card";
-    document.body.appendChild(bookCard);
+    const bookCardElement = document.createElement("div");
+    bookCardElement.setAttribute("data-book-id", bookLibrary[i].id);
+    bookCardElement.className = "book-card";
+    document.body.appendChild(bookCardElement);
 
     const bookTitleElement = document.createElement("p");
-    const bookTitleContent = document.createTextNode(bookLibrary[i].title);
-    bookTitleElement.appendChild(bookTitleContent);
-    bookCard.appendChild(bookTitleElement);
+    bookTitleElement.innerText = bookLibrary[i].title;
+    bookTitleElement.className = "book-title";
+    bookCardElement.appendChild(bookTitleElement);
+
+    const bookAuthorElement = document.createElement("p");
+    bookAuthorElement.innerText = `by ${bookLibrary[i].author}`;
+    bookAuthorElement.className = "book-author";
+    bookCardElement.appendChild(bookAuthorElement);
+
+    const bookPagesElement = document.createElement("p");
+    bookPagesElement.innerText = `${bookLibrary[i].pages} pages`;
+    bookPagesElement.className = "book-pages";
+    bookCardElement.appendChild(bookPagesElement);
+
+    const bookStatusElement = document.createElement("p");
+    bookStatusElement.innerText = bookLibrary[i].status;
+    bookCardElement.appendChild(bookStatusElement);
   }
 }
 
