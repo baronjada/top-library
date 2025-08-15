@@ -7,5 +7,49 @@
     <link rel="stylesheet" href="src/styles.css" />
     <script src="src/script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <h1>The Odin Library</h1>
+
+    <dialog id="add-book-dialog">
+      <form method="dialog">
+        <p>
+          <label for="title-dialog-input">Title:</label>
+          <input
+            type="text"
+            name="title-dialog-input"
+            id="title-dialog-input"
+          />
+        </p>
+        <p>
+          <label for="book-dialog-input">Author:</label>
+          <input type="text" name="book-dialog-input" id="book-dialog-input" />
+        </p>
+
+        <p>
+          <label for="pages-dialog-input">Number of pages:</label>
+          <input
+            type="text"
+            name="pages-dialog-input"
+            id="pages-dialog-input"
+          />
+        </p>
+
+        <p>
+          <label for="status-dialog-select">Status:</label>
+          <select name="status-dialog-select" id="status-dialog-select">
+            <option value="read">Read</option>
+            <option value="not-read">Not Read</option>
+          </select>
+        </p>
+        <menu>
+          <button id="cancel-button" type="reset">Cancel</button>
+          <button type="submit" id="submit-button">Submit</button>
+        </menu>
+      </form>
+    </dialog>
+    <menu>
+      <button class="add-book-button" id="add-book-button">Add Book</button>
+    </menu>
+    <output>Test output</output>
+  </body>
 </html>

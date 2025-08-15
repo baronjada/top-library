@@ -8,6 +8,25 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+h1 {
+  text-align: center;
+  margin: 56px 0 28px;
+}
+
+.add-book-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 36px;
+  border: none;
+  border-radius: 14px;
+  background-color: rgb(33, 33, 33);
+  color: #fff;
+}
+
+.add-book-button:hover {
+  background-color: rgb(147, 147, 147);
+}
+
 .book-library-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,9 +36,10 @@ body {
 }
 
 .book-card {
-  background-color: rgb(147, 147, 147);
+  background-color: #fff;
   padding: 18px;
   border-radius: 10px;
+  border: 1px solid rgb(33, 33, 33);
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -27,7 +47,7 @@ body {
 }
 
 .book-card p {
-  color: #fff;
+  color: rgb(33, 33, 33);
 }
 
 .book-title-and-author {
@@ -51,6 +71,6 @@ body {
 
 .book-pages-and-status p {
   font-size: 0.8em;
-  color: rgb(33, 33, 33);
+  color: rgb(147, 147, 147);
   font-weight: 500;
 }

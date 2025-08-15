@@ -73,4 +73,50 @@ const book3 = addBookToLibrary(
   "Read"
 );
 
+const dialog = document.getElementById("add-book-dialog");
+const addBookButton = document.getElementById("add-book-button");
+
+const titleDialogInput = document.getElementById("title-dialog-input");
+const authorDialogInput = document.getElementById("author-dialog-input");
+const pagesDialogInput = document.getElementById("pages-dialog-input");
+const statusDialogSelect = document.getElementById("status-dialog-select");
+
+const cancelButton = document.getElementById("cancel-button");
+const submitButton = document.getElementById("submit-button");
+
+function openCheck() {
+  if (dialog.open) {
+    console.log("dialog is open");
+  } else {
+    console.log("dialog is closed");
+  }
+}
+
+function showDialog(event) {
+  event.preventDefault();
+  dialog.showModal();
+  openCheck(dialog);
+}
+
+function closeDialog(event) {
+  event.preventDefault();
+
+  dialog.close();
+  openCheck(dialog);
+}
+
+function submitDialog(event) {
+  event.preventDefault();
+
+  titleDialogInput.innerText = dialog.returnValue;
+  // Need to work out how to retrieve value from form fields within dialog and pull them into arguments to be used in addBookToLibrary function call
+
+  dialog.close();
+  openCheck(dialog);
+}
+
+addBookButton.addEventListener("click", showDialog);
+cancelButton.addEventListener("click", closeDialog);
+submitButton.addEventListener("click", submitDialog);
+
 displayLibrary();
