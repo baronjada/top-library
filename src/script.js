@@ -14,14 +14,16 @@ function Book(title, author, pages, status) {
 function addBookToLibrary(title, author, pages, status) {
   const book = new Book(title, author, pages, status);
 
-  bookLibrary.push(book);
+  bookLibrary.splice(bookLibrary.length - 1, bookLibrary.length, book);
+
+  displayLibrary();
 }
 
-function displayLibrary() {
-  const bookLibraryContainer = document.createElement("div");
-  bookLibraryContainer.className = "book-library-container";
-  document.body.appendChild(bookLibraryContainer);
+const bookLibraryContainer = document.createElement("div");
+bookLibraryContainer.className = "book-library-container";
+document.body.appendChild(bookLibraryContainer);
 
+function displayLibrary() {
   for (let i = 0; i < bookLibrary.length; i++) {
     const bookCardElement = document.createElement("div");
     bookCardElement.setAttribute("data-book-id", bookLibrary[i].id);
@@ -58,21 +60,6 @@ function displayLibrary() {
   }
 }
 
-const book1 = addBookToLibrary("Before I Let Go", "Kennedy Ryan", 425, "Read");
-
-const book2 = addBookToLibrary(
-  "Honey & Spice",
-  "Bolu Babalola",
-  324,
-  "Not Read"
-);
-const book3 = addBookToLibrary(
-  "I Will Teach You To Be Rich",
-  "Ramit Sethi",
-  444,
-  "Read"
-);
-
 const dialog = document.getElementById("add-book-dialog");
 const addBookButton = document.getElementById("add-book-button");
 
@@ -108,15 +95,25 @@ function closeDialog(event) {
 function submitDialog(event) {
   event.preventDefault();
 
-  titleDialogInput.innerText = dialog.returnValue;
-  // Need to work out how to retrieve value from form fields within dialog and pull them into arguments to be used in addBookToLibrary function call
+  const titleInputValue = titleDialogInput.value;
+  const authorInputValue = authorDialogInput.value;
+  const pagesInputValue = pagesDialogInput.value;
+  const statusSelectValue = statusDialogSelect.value;
+
+  addBookToLibrary(
+    titleInputValue,
+    authorInputValue,
+    pagesInputValue,
+    statusSelectValue
+  );
+
+  console.log("book library inside dialog", bookLibrary);
 
   dialog.close();
+
   openCheck(dialog);
 }
 
 addBookButton.addEventListener("click", showDialog);
 cancelButton.addEventListener("click", closeDialog);
 submitButton.addEventListener("click", submitDialog);
-
-displayLibrary();

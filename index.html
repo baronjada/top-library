@@ -11,7 +11,7 @@
     <h1>The Odin Library</h1>
 
     <dialog id="add-book-dialog">
-      <form method="dialog">
+      <form method="dialog" id="add-book-form">
         <p>
           <label for="title-dialog-input">Title:</label>
           <input
@@ -21,8 +21,12 @@
           />
         </p>
         <p>
-          <label for="book-dialog-input">Author:</label>
-          <input type="text" name="book-dialog-input" id="book-dialog-input" />
+          <label for="author-dialog-input">Author:</label>
+          <input
+            type="text"
+            name="author-dialog-input"
+            id="author-dialog-input"
+          />
         </p>
 
         <p>
@@ -50,6 +54,5 @@
     <menu>
       <button class="add-book-button" id="add-book-button">Add Book</button>
     </menu>
-    <output>Test output</output>
   </body>
 </html>
