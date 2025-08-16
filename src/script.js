@@ -14,9 +14,7 @@ function Book(title, author, pages, status) {
 function addBookToLibrary(title, author, pages, status) {
   const book = new Book(title, author, pages, status);
 
-  bookLibrary.splice(bookLibrary.length - 1, bookLibrary.length, book);
-
-  displayLibrary();
+  bookLibrary.push(book);
 }
 
 const bookLibraryContainer = document.createElement("div");
@@ -107,9 +105,15 @@ function submitDialog(event) {
     statusSelectValue
   );
 
+  bookLibraryContainer.innerHTML = "";
+
   console.log("book library inside dialog", bookLibrary);
 
   dialog.close();
+
+  displayLibrary();
+
+  document.getElementById("add-book-form").reset();
 
   openCheck(dialog);
 }
