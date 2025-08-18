@@ -27,6 +27,19 @@ h1 {
   background-color: rgb(147, 147, 147);
 }
 
+.remove-book-button {
+  display: block;
+  padding: 6px 30px;
+  border: none;
+  border-radius: 14px;
+  background-color: rgb(147, 147, 147);
+  color: #fff;
+}
+
+.remove-book-button:hover {
+  background-color: rgb(33, 33, 33);
+}
+
 .book-library-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

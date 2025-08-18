@@ -42,6 +42,11 @@ function displayLibrary() {
     bookAuthorElement.className = "book-author";
     titleAndAuthorContainer.appendChild(bookAuthorElement);
 
+    const removeBookButton = document.createElement("button");
+    removeBookButton.innerText = "Remove book";
+    removeBookButton.className = "remove-book-button";
+    bookCardElement.appendChild(removeBookButton);
+
     const pagesAndStatusContainer = document.createElement("div");
     pagesAndStatusContainer.className = "book-pages-and-status";
     bookCardElement.appendChild(pagesAndStatusContainer);
@@ -121,3 +126,6 @@ function submitDialog(event) {
 addBookButton.addEventListener("click", showDialog);
 cancelButton.addEventListener("click", closeDialog);
 submitButton.addEventListener("click", submitDialog);
+
+const book1 = addBookToLibrary("Before I Let Go", "Kennedy Ryan", 444, "Read");
+displayLibrary();
