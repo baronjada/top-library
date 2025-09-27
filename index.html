@@ -12,43 +12,44 @@
 
     <dialog id="add-book-dialog">
       <form method="dialog" id="add-book-form">
-        <p>
-          <label for="title-dialog-input">Title:</label>
-          <input
-            type="text"
-            name="title-dialog-input"
-            id="title-dialog-input"
-          />
-        </p>
-        <p>
-          <label for="author-dialog-input">Author:</label>
-          <input
-            type="text"
-            name="author-dialog-input"
-            id="author-dialog-input"
-          />
-        </p>
+        <div id="dialog-input-container">
+          <p>
+            <label for="title-dialog-input">Title:</label>
+            <input
+              type="text"
+              name="title-dialog-input"
+              id="title-dialog-input"
+            />
+          </p>
+          <p>
+            <label for="author-dialog-input">Author:</label>
+            <input
+              type="text"
+              name="author-dialog-input"
+              id="author-dialog-input"
+            />
+          </p>
+          <p>
+            <label for="pages-dialog-input">Number of pages:</label>
+            <input
+              type="text"
+              name="pages-dialog-input"
+              id="pages-dialog-input"
+            />
+          </p>
+          <p>
+            <label for="status-dialog-select">Status:</label>
+            <select name="status-dialog-select" id="status-dialog-select">
+              <option value="Read">Read</option>
+              <option value="Not Read">Not Read</option>
+            </select>
+          </p>
 
-        <p>
-          <label for="pages-dialog-input">Number of pages:</label>
-          <input
-            type="text"
-            name="pages-dialog-input"
-            id="pages-dialog-input"
-          />
-        </p>
-
-        <p>
-          <label for="status-dialog-select">Status:</label>
-          <select name="status-dialog-select" id="status-dialog-select">
-            <option value="Read">Read</option>
-            <option value="Not Read">Not Read</option>
-          </select>
-        </p>
-        <menu>
-          <button id="cancel-button" type="reset">Cancel</button>
-          <button type="submit" id="submit-button">Submit</button>
-        </menu>
+          <menu class="dialog-button-menu">
+            <button id="cancel-button" type="reset">Cancel</button>
+            <button type="submit" id="submit-button">Submit</button>
+          </menu>
+        </div>
       </form>
     </dialog>
     <menu>

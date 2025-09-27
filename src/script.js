@@ -60,11 +60,29 @@ function displayLibrary() {
     bookStatusElement.innerText = bookLibrary[i].status;
     bookStatusElement.className = "book-status";
     pagesAndStatusContainer.appendChild(bookStatusElement);
+
+    removeBookButton.addEventListener("click", removeBook);
   }
+}
+
+// function loops through all book id attributes and console logs them on click
+// need to console log only the book id of the card being clicked on
+// put that one id into a variable
+// find method (splice or filter?) to remove that book id from bookLibrary array
+// call displayLibrary function to show updated library array as cards
+function removeBook() {
+  bookLibrary.forEach((book) => {
+    console.log(book.id);
+  });
 }
 
 const dialog = document.getElementById("add-book-dialog");
 const addBookButton = document.getElementById("add-book-button");
+
+const dialogInputContainer = document.getElementById("dialog-input-container");
+dialogInputContainer.style.display = "flex";
+dialogInputContainer.style.flexDirection = "column";
+dialogInputContainer.style.gap = "24px";
 
 const titleDialogInput = document.getElementById("title-dialog-input");
 const authorDialogInput = document.getElementById("author-dialog-input");
@@ -127,5 +145,9 @@ addBookButton.addEventListener("click", showDialog);
 cancelButton.addEventListener("click", closeDialog);
 submitButton.addEventListener("click", submitDialog);
 
-const book1 = addBookToLibrary("Before I Let Go", "Kennedy Ryan", 444, "Read");
+addBookToLibrary("Before I Let Go", "Kennedy Ryan", 444, "Read");
+addBookToLibrary("A Court Of Thorns And Roses", "Sarah J Maas", 555, "Read");
+addBookToLibrary("Honey & Spice", "Bolu Babalola", 333, "Read");
+addBookToLibrary("Credence", "Penelope Douglas", 357, "Not Read");
+
 displayLibrary();
