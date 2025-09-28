@@ -17,6 +17,16 @@ function addBookToLibrary(title, author, pages, status) {
   bookLibrary.push(book);
 }
 
+// need to console log only the book id of the card being clicked on - done
+// put that one id into a variable
+// find method (splice or filter?) to remove that book id from bookLibrary array
+// call displayLibrary function to show updated library array as cards
+function removeBookFromLibrary(event) {
+  event.preventDefault();
+
+  console.log(event.target.parentNode.getAttribute("data-book-id"));
+}
+
 const bookLibraryContainer = document.createElement("div");
 bookLibraryContainer.className = "book-library-container";
 document.body.appendChild(bookLibraryContainer);
@@ -61,19 +71,8 @@ function displayLibrary() {
     bookStatusElement.className = "book-status";
     pagesAndStatusContainer.appendChild(bookStatusElement);
 
-    removeBookButton.addEventListener("click", removeBook);
+    removeBookButton.addEventListener("click", removeBookFromLibrary);
   }
-}
-
-// function loops through all book id attributes and console logs them on click
-// need to console log only the book id of the card being clicked on
-// put that one id into a variable
-// find method (splice or filter?) to remove that book id from bookLibrary array
-// call displayLibrary function to show updated library array as cards
-function removeBook() {
-  bookLibrary.forEach((book) => {
-    console.log(book.id);
-  });
 }
 
 const dialog = document.getElementById("add-book-dialog");
