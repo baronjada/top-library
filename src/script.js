@@ -1,4 +1,4 @@
-const bookLibrary = [];
+let bookLibrary = [];
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -18,13 +18,18 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 // need to console log only the book id of the card being clicked on - done
-// put that one id into a variable
-// find method (splice or filter?) to remove that book id from bookLibrary array
-// call displayLibrary function to show updated library array as cards
+// put that one id into a variable - done
+// find method (splice or filter?) to remove that book id from bookLibrary array - done
+// call displayLibrary function to show updated library array as cards - done
 function removeBookFromLibrary(event) {
   event.preventDefault();
 
-  console.log(event.target.parentNode.getAttribute("data-book-id"));
+  const bookToRemove = event.target.parentNode.getAttribute("data-book-id");
+
+  bookLibrary = bookLibrary.filter((book) => book.id !== bookToRemove);
+
+  bookLibraryContainer.innerHTML = "";
+  displayLibrary();
 }
 
 const bookLibraryContainer = document.createElement("div");
@@ -147,6 +152,6 @@ submitButton.addEventListener("click", submitDialog);
 addBookToLibrary("Before I Let Go", "Kennedy Ryan", 444, "Read");
 addBookToLibrary("A Court Of Thorns And Roses", "Sarah J Maas", 555, "Read");
 addBookToLibrary("Honey & Spice", "Bolu Babalola", 333, "Read");
-addBookToLibrary("Credence", "Penelope Douglas", 357, "Not Read");
+addBookToLibrary("A Love Letter to Whiskey", "Kandi Steiner", 357, "Not Read");
 
 displayLibrary();
